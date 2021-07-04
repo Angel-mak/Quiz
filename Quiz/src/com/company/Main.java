@@ -8,10 +8,13 @@ public class Main {
         String path = "C:\\Users\\Angel-PC\\Desktop\\First Category.csv";
         BufferedReader br = new BufferedReader(new FileReader(path));
         String line = "";
-        List<String[]> listOfQA = new ArrayList<>();
+        List<List> listOfQA = new ArrayList<>();
 
         while ((line = br.readLine()) != null) {
-            listOfQA.add((line.split(";")));
+            listOfQA.add(Arrays.asList((line.split(";"))));
+        }
+        for (int i = 0;i<4;i++){
+            Collections.shuffle(listOfQA.get(i));
         }
         Collections.shuffle(listOfQA);
         byte points = 0;
@@ -19,7 +22,7 @@ public class Main {
             System.out.println();
             for (int j = 0; j < 5; j++) {
 
-                System.out.println(listOfQA.get(i)[j]);
+                System.out.println(listOfQA.get(i).get(j));
             }
             String userAnswer = inpot.nextLine().toLowerCase(Locale.ROOT);
             if (userAnswer.equals("sofia") || userAnswer.equals("brussels")
@@ -43,17 +46,20 @@ public class Main {
         String path = "C:\\Users\\Angel-PC\\Desktop\\Second Category.csv";
         BufferedReader br = new BufferedReader(new FileReader(path));
         String line = "";
-        List<String[]> listOfQA = new ArrayList<>();
+        List<List> listOfQA = new ArrayList<>();
 
         while ((line = br.readLine()) != null) {
-            listOfQA.add((line.split(";")));
+            listOfQA.add(Arrays.asList((line.split(";"))));
+        }
+        for (int i = 0;i<4;i++) {
+            Collections.shuffle(listOfQA.get(i));
         }
         Collections.shuffle(listOfQA);
         byte points = 0;
         for (int i = 0; i < listOfQA.size(); i++) {
             System.out.println();
             for (int j = 0; j < 5; j++) {
-                System.out.println(listOfQA.get(i)[j]);
+                System.out.println(listOfQA.get(i).get(j));
             }
             String userAnswer = inpot.nextLine().toLowerCase(Locale.ROOT);
             if (userAnswer.equals("6") || userAnswer.equals("mintonette")
